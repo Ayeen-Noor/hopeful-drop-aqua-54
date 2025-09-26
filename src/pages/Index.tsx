@@ -102,22 +102,44 @@ const Index = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-foreground text-primary-foreground py-12">
-        <div className="container mx-auto px-4">
+      {/* Footer with Clean Water Theme */}
+      <footer className="bg-gradient-to-r from-primary to-secondary text-primary-foreground py-16 relative overflow-hidden">
+        {/* Water Flow Background Effect */}
+        <div className="absolute inset-0 bg-gradient-flow opacity-20 animate-gradient-flow" />
+        
+        {/* Floating Water Bubbles */}
+        <div className="absolute inset-0">
+          {[...Array(15)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-white/20 rounded-full animate-bubble"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 6}s`,
+                animationDuration: `${8 + Math.random() * 4}s`,
+              }}
+            />
+          ))}
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
-            <div className="mb-6">
-              <span className="text-2xl font-bold text-gradient-ocean">HopeDrop</span>
+            <div className="mb-8">
+              <span className="text-3xl font-bold text-white animate-water-flow">HopeDrop</span>
+              <p className="text-primary-foreground/80 mt-2 text-lg animate-wave">
+                Pure Water. Bright Future.
+              </p>
             </div>
             
-            <div className="text-sm text-primary-foreground/70 mb-4">
-              © 2024 HopeDrop. Bringing clean water solutions to communities across Bangladesh.
+            <div className="text-primary-foreground/70 mb-6 max-w-2xl mx-auto leading-relaxed">
+              © 2024 HopeDrop. Bringing revolutionary water purification solutions to communities across Bangladesh and beyond.
             </div>
             
-            <div className="flex justify-center gap-6 text-sm">
-              <a href="#" className="hover:text-accent transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="hover:text-accent transition-colors duration-300">Terms of Service</a>
-              <a href="#contact" className="hover:text-accent transition-colors duration-300">Contact</a>
+            <div className="flex justify-center gap-8 text-sm">
+              <a href="#" className="hover:text-white transition-all duration-300 hover:scale-105 water-ripple px-4 py-2 rounded-lg">Privacy Policy</a>
+              <a href="#" className="hover:text-white transition-all duration-300 hover:scale-105 water-ripple px-4 py-2 rounded-lg">Terms of Service</a>
+              <a href="#contact" className="hover:text-white transition-all duration-300 hover:scale-105 water-ripple px-4 py-2 rounded-lg">Contact</a>
             </div>
           </div>
         </div>

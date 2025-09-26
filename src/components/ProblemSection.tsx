@@ -26,15 +26,15 @@ const ProblemSection = () => {
   ];
 
   return (
-    <section id="problem" className="py-20 bg-gradient-dark relative overflow-hidden">
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20 animate-pulse-slow" />
+    <section id="problem" className="py-20 bg-gradient-water relative overflow-hidden">
+      {/* Water Flow Background Pattern */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 bg-gradient-flow animate-gradient-flow" />
       </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground drop-shadow-[0_0_30px_theme(colors.primary.DEFAULT)]">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-ocean">
             The Water Crisis We're Solving
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -46,15 +46,16 @@ const ProblemSection = () => {
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="group cursor-pointer"
+              className="group cursor-pointer scroll-wave"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
-              <div className="card-glass hover:shadow-glow transition-all duration-500 hover:scale-105">
-                <div className="flex items-center justify-center w-16 h-16 bg-destructive/80 rounded-full mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 shadow-glow-orange">
-                  <problem.icon size={32} className="text-destructive-foreground" />
+              <div className="card-feature hover:shadow-medium transition-all duration-500 hover:scale-105">
+                <div className="flex items-center justify-center w-16 h-16 bg-destructive/15 rounded-2xl mb-6 mx-auto group-hover:scale-110 transition-transform duration-300 border border-destructive/20">
+                  <problem.icon size={32} className="text-destructive" />
                 </div>
                 
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-accent mb-2 group-hover:text-accent-light transition-colors duration-300 drop-shadow-[0_0_20px_theme(colors.accent.DEFAULT)]">
+                  <div className="text-4xl font-bold text-gradient-water mb-2 group-hover:scale-110 transition-transform duration-300">
                     {problem.stat}
                   </div>
                   <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
@@ -72,10 +73,10 @@ const ProblemSection = () => {
           ))}
         </div>
 
-        {/* Call to Action with Glow Effect */}
+        {/* Call to Action with Water Effect */}
         <div className="text-center">
-          <div className="inline-flex items-center gap-3 bg-card/60 backdrop-blur-sm border border-primary/40 rounded-full px-8 py-4 shadow-glow hover:shadow-glow-cyan transition-all duration-300">
-            <TrendingUp size={24} className="text-accent glow-accent" />
+          <div className="inline-flex items-center gap-3 bg-white/80 backdrop-blur-sm border border-primary/30 rounded-2xl px-8 py-4 shadow-soft hover:shadow-medium transition-all duration-300">
+            <TrendingUp size={24} className="text-accent animate-wave" />
             <span className="text-lg font-semibold text-foreground">
               These challenges demand innovative, sustainable solutions
             </span>

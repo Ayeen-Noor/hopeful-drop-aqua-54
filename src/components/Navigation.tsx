@@ -25,43 +25,43 @@ const Navigation = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-card/80 backdrop-blur-md shadow-glow border-b border-primary/30' 
-          : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-md shadow-soft border-b border-primary/20' 
+          : 'bg-white/20 backdrop-blur-sm'
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
+          {/* Logo with Water Drop Effect */}
+          <div className="flex items-center space-x-3 group">
             <img 
               src={hopeDropLogo} 
               alt="HopeDrop Logo" 
-              className="h-10 w-auto animate-float"
+              className="h-10 w-auto animate-float hover:animate-bubble transition-all duration-300"
             />
-            <span className="text-2xl font-bold text-gradient-ocean">HopeDrop</span>
+            <span className="text-2xl font-bold text-gradient-flow">HopeDrop</span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation with Water Ripple Effects */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-foreground hover:text-primary transition-colors duration-300 font-medium relative group"
+                className="text-foreground hover:text-primary transition-all duration-500 font-medium relative group water-ripple py-2 px-4 rounded-xl hover:bg-primary/5"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-ocean group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-4 right-4 h-0.5 bg-gradient-ocean scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               </a>
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button with Enhanced Water Effects */}
           <div className="hidden md:block">
             <a
               href="#contact"
-              className="btn-hero px-6 py-2 rounded-full font-semibold"
+              className="btn-hero water-ripple px-6 py-3 font-semibold animate-water-flow"
             >
               Get In Touch
             </a>
@@ -70,22 +70,23 @@ const Navigation = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-all duration-300 water-ripple rounded-lg hover:bg-primary/10"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation with Water Theme */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-primary/30 bg-card/90 backdrop-blur-md rounded-lg shadow-glow">
-            <div className="flex flex-col space-y-4">
+          <div className="md:hidden mt-4 py-4 border-t border-primary/20 bg-white/95 backdrop-blur-md rounded-xl shadow-soft animate-fade-in-up">
+            <div className="flex flex-col space-y-2">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground hover:text-primary transition-colors duration-300 font-medium px-4 py-2 hover:glow-primary"
+                  className="text-foreground hover:text-primary transition-all duration-500 font-medium px-4 py-3 hover:bg-primary/10 rounded-lg water-ripple animate-water-flow"
+                  style={{ animationDelay: `${navItems.indexOf(item) * 0.1}s` }}
                 >
                   {item.label}
                 </a>
@@ -93,7 +94,7 @@ const Navigation = () => {
               <a
                 href="#contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn-hero px-6 py-2 rounded-full font-semibold mx-4 text-center"
+                className="btn-hero water-ripple px-6 py-3 font-semibold mx-4 text-center mt-4"
               >
                 Get In Touch
               </a>

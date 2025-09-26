@@ -73,8 +73,8 @@ export default {
         'gradient-sustainability': 'var(--gradient-sustainability)',
         'gradient-solar': 'var(--gradient-solar)',
         'gradient-hero': 'var(--gradient-hero)',
-        'gradient-dark': 'var(--gradient-dark)',
-        'gradient-glow': 'var(--gradient-glow)',
+        'gradient-water': 'var(--gradient-water)',
+        'gradient-flow': 'var(--gradient-flow)',
       },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
@@ -82,15 +82,19 @@ export default {
         'strong': 'var(--shadow-strong)',
         'glow': 'var(--shadow-glow)',
         'glow-cyan': 'var(--shadow-glow-cyan)',
-        'glow-orange': 'var(--shadow-glow-orange)',
+        'glow-water': 'var(--shadow-glow-water)',
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s ease-in-out infinite',
+        'float': 'float 8s ease-in-out infinite',
+        'water-flow': 'waterFlow 4s ease-in-out infinite',
+        'bubble': 'bubble 6s ease-in-out infinite',
+        'wave': 'wave 3s ease-in-out infinite',
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-        'shimmer': 'shimmer 2s infinite',
+        'shimmer': 'shimmer 3s infinite',
+        'gradient-flow': 'gradientFlow 3s ease-in-out infinite',
+        'ripple': 'ripple 0.6s ease-out',
       },
       keyframes: {
         "accordion-down": {
@@ -111,17 +115,39 @@ export default {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-          '50%': { transform: 'translateY(-20px) rotate(1deg)' },
+          '33%': { transform: 'translateY(-15px) rotate(1deg)' },
+          '66%': { transform: 'translateY(-5px) rotate(-0.5deg)' },
+        },
+        waterFlow: {
+          '0%, 100%': { transform: 'translateX(0) scaleX(1)' },
+          '50%': { transform: 'translateX(5px) scaleX(1.02)' },
+        },
+        bubble: {
+          '0%': { transform: 'translateY(0) scale(1)', opacity: '0.7' },
+          '50%': { transform: 'translateY(-20px) scale(1.1)', opacity: '1' },
+          '100%': { transform: 'translateY(-40px) scale(0.9)', opacity: '0.3' },
+        },
+        wave: {
+          '0%, 100%': { transform: 'translateX(0) rotateY(0deg)' },
+          '50%': { transform: 'translateX(3px) rotateY(1deg)' },
         },
         fadeInUp: {
           from: {
             opacity: '0',
-            transform: 'translateY(30px)',
+            transform: 'translateY(40px)',
           },
           to: {
             opacity: '1',
             transform: 'translateY(0)',
           },
+        },
+        gradientFlow: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        ripple: {
+          '0%': { transform: 'translate(-50%, -50%) scale(0)', opacity: '1' },
+          '100%': { transform: 'translate(-50%, -50%) scale(4)', opacity: '0' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-200% 0' },
